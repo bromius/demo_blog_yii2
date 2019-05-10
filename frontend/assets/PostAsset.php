@@ -5,19 +5,17 @@ namespace frontend\assets;
 use yii\web\AssetBundle;
 
 /**
- * Main frontend application asset bundle.
+ * Post asset bundle.
  */
-class AppAsset extends AssetBundle
+class PostAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
-        'css/blog.css',
+        'css/post.css',
     ];
     public $js = [
-        'js/lib.js',
-        'js/post.js'
+        
     ];
     public $depends = [
         'yii\web\YiiAsset',

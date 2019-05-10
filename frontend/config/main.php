@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+	'name' => 'Блог',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -30,20 +31,21 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                    'logVars' => ['_GET', '_POST'],
                 ],
             ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

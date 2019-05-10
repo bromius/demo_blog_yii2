@@ -35,15 +35,16 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
+    $menuItems = [];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        
+        echo Html::tag('div', Yii::$app->params['headerText'], [
+            'class' => ['navbar-nav navbar-left nav navbar-text']
+        ]);
     } else {
+        $menuItems[] = '<li><a class="js-post-add" href="#">Добавить пост</a></li>';
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
@@ -76,6 +77,8 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
+    
+<?= $this->render('//site/modals') ?>
 
 <?php $this->endBody() ?>
 </body>
