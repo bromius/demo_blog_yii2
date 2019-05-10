@@ -2,5 +2,7 @@
 ### Exploring framework features
 
 ---
+Database and framework guide stored in "resources" directory.
+---
 
 ###### (c) Kinweb
